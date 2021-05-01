@@ -2,6 +2,8 @@ import { useState } from "react";
 
 import ComponenteClase from "./components/ComponenteClase";
 import ComponenteFuncional from "./components/ComponenteFuncional";
+import ListaPersonasClase from "./components/ListaPersonasClase";
+import ListaPersonasFuncion from "./components/ListaPersonasFuncion";
 
 function App() {
   const [contenidoClase, setContenidoClase] = useState("Propiedad");
@@ -9,12 +11,12 @@ function App() {
 
   const personas = [
     { nombre: "Luis", edad: 204, perros: 3 },
-    { nombre: "Irene", edad: 204, perros: 3 },
-    { nombre: "Cristian", edad: 204, perros: 3 },
-    { nombre: "Daniel", edad: 204, perros: 3 },
-    { nombre: "Diego", edad: 204, perros: 3 },
-    { nombre: "Felipe", edad: 204, perros: 3 },
-    { nombre: "Hector", edad: 204, perros: 3 },
+    { nombre: "Irene", edad: 204, perros: 2 },
+    { nombre: "Cristian", edad: 204, perros: 4 },
+    { nombre: "Daniel", edad: 204, perros: 6 },
+    { nombre: "Diego", edad: 204, perros: 7 },
+    { nombre: "Felipe", edad: 204, perros: 0 },
+    { nombre: "Hector", edad: 204, perros: 1 },
   ];
 
   return (
@@ -29,7 +31,10 @@ function App() {
           setContenidoPadre={setContenidoFuncion}
         />
       </div>
-      <div></div>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <ListaPersonasClase personas={personas} />
+        <ListaPersonasFuncion personas={personas} />
+      </div>
     </>
   );
 }

@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
 
-export default function ComponenteFuncional(props) {
+export default function ComponenteFuncional({
+  contenidoPadre,
+  setContenidoPadre,
+}) {
   const [contenido, setContenido] = useState("Lorem ipsum");
 
   useEffect(() => {
     setTimeout(() => {
       setContenido("Pasaron 3 segundos");
-      props.setContenidoPadre("Funcion");
+      setContenidoPadre("Funcion");
     }, 3000);
   }, []);
 
@@ -14,7 +17,7 @@ export default function ComponenteFuncional(props) {
     <div>
       <h2>Componente Funcional</h2>
       <p>{contenido}</p>
-      <p>{props.contenidoPadre}</p>
+      <p>{contenidoPadre}</p>
     </div>
   );
 }
