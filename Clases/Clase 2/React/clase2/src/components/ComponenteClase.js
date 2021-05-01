@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 
 export default class ComponenteClase extends Component {
+  static propTypes = {
+    contenidoPadre: String,
+  };
+
   constructor() {
     super();
-
     this.state = {
       contenido: "Lorem ipsum",
     };
@@ -14,6 +17,7 @@ export default class ComponenteClase extends Component {
     setTimeout(() => {
       // this.state.contenido = "Pasaron 3 segundos"; ESTO NO SE HACE, UFA
       this.setState({ contenido: "Pasaron 3 segundos" });
+      this.props.setContenidoPadre("Clase");
     }, 3000);
   }
 
@@ -22,6 +26,7 @@ export default class ComponenteClase extends Component {
       <div>
         <h2>Componente de Clases</h2>
         <p>{this.state.contenido}</p>
+        <p>{this.props.contenidoPadre}</p>
       </div>
     );
   }
