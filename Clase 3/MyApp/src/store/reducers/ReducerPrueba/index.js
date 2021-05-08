@@ -1,4 +1,10 @@
-export default function (state = {}, {type, payload}) {
+const initialState = {
+  nombre: '',
+  apellido: '',
+  edad: null,
+};
+
+export default function (state = initialState, {type, payload}) {
   switch (type) {
     default:
       return state;
