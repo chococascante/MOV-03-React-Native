@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import {Text, View} from 'react-native';
 import {connect} from 'react-redux';
-import {updateName} from '../store/actions/prueba';
+import {getPosts, updateName} from '../store/actions/prueba';
 
 export class PruebaClases extends Component {
   componentDidMount() {
     this.props.updateNameProp('Cristian');
+    this.props.getPostsProp();
   }
 
   render() {
@@ -25,6 +26,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   updateNameProp: nombre => dispatch(updateName(nombre)),
+  getPostsProp: () => dispatch(getPosts()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PruebaClases);

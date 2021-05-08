@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {View, Text} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
-import {updateName} from '../store/actions/prueba';
+import {updateName, updatePosts, getPosts} from '../store/actions/prueba';
 
 const PruebaFuncion = () => {
   const nombre = useSelector(state => state.nombre); // Saco cosas del store de Redux
@@ -10,6 +10,7 @@ const PruebaFuncion = () => {
 
   useEffect(() => {
     dispatch(updateName('Luis'));
+    dispatch(getPosts());
   }, [dispatch]);
 
   return (
