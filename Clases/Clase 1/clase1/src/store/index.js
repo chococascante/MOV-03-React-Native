@@ -1,14 +1,15 @@
 import {combineReducers, createStore} from 'redux';
 import * as reducers from './reducers';
 
-const createRootReducer = history => {
+const createRootReducer = () => {
   combineReducers({
     ...reducers,
   });
 };
 
 export default function configureStore() {
-  const store = createStore(createRootReducer());
+  const rootReducer = createRootReducer();
+  const store = createStore(rootReducer);
 
   return store;
 }
