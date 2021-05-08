@@ -7,8 +7,6 @@ const initialState = {
 };
 
 export default function (state = initialState, {type, payload}) {
-  console.log('Type', type);
-  console.log('Payload', payload);
   switch (type) {
     case UPDATE_NAME:
       return {...state, nombre: payload};
