@@ -9,17 +9,18 @@
  */
 
 import React from 'react';
-import {Text, View} from 'react-native';
 
 //Componentes
 import PruebaFuncion from './src/components/PruebaFuncion';
 
-// Redux
+// Redux genérico, de una vez
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 import reducerPrueba from './src/store/reducers/ReducerPrueba';
 
 const store = createStore(reducerPrueba);
+console.log(store);
+//
 
 const App = () => {
   return (
