@@ -7,16 +7,7 @@
  */
 
 import React from 'react';
-import type {Node} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import { View, Text} from 'react-native';
 
 // Redux
 import {Provider} from 'react-redux';
@@ -27,15 +18,11 @@ import PruebaFuncion from './src/components/PruebaFuncion/PruebaFuncion';
 
 const store = configureStore();
 
-console.warning(store);
-
-const App: () => Node = () => {
+const App = () => {
   return (
-    <Provider store={store}>
-      <View>
-        <PruebaFuncion />
-      </View>
-    </Provider>
+    <View>
+      <Text>Hola</Text>
+    </View>
   );
 };
 
