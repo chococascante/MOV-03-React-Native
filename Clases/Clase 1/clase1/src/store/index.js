@@ -7,6 +7,12 @@ const createRootReducer = () => {
   });
 };
 
+// {
+//   prueba: {
+//     nombre: ''
+//   }
+// }
+
 export default function configureStore() {
   const rootReducer = createRootReducer();
   const store = createStore(rootReducer);

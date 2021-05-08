@@ -18,16 +18,23 @@ import {
   View,
 } from 'react-native';
 
+// Redux
 import {Provider} from 'react-redux';
-
 import configureStore from './src/store';
 
+// Componentes
+import PruebaFuncion from './src/components/PruebaFuncion/PruebaFuncion';
+
 const store = configureStore();
+
+console.warning(store);
 
 const App: () => Node = () => {
   return (
     <Provider store={store}>
-      <Text>Hola</Text>
+      <View>
+        <PruebaFuncion />
+      </View>
     </Provider>
   );
 };
