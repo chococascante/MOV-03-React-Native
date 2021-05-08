@@ -34,7 +34,7 @@ function App() {
       </div>
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <ListaPersonasClase personas={personas} setPersonas={setPersonas} />
-        <ListaPersonasFuncion personas={personas} />
+        <ListaPersonasFuncion personas={personas} setPersonas={setPersonas} />
       </div>
     </>
   );
