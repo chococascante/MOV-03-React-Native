@@ -1,13 +1,9 @@
+import Action from '../../../models/Action';
 import {
   UPDATE_NAME,
   UPDATE_LASTNAME,
   UPDATE_POSTS,
 } from '../../actions/actionTypes';
-
-interface Action {
-  type: string;
-  payload: string | [];
-}
 
 const initialState = {
   nombre: '',

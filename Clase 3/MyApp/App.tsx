@@ -9,10 +9,10 @@
  */
 
 import React from 'react';
+import {View} from 'react-native';
 
 //Componentes
-import PruebaFuncion from './src/components/PruebaFuncion';
-import PruebaClase from './src/components/PruebaClases';
+import InputTareas from './src/components/InputTareas';
 
 // Redux genérico, de una vez
 import {applyMiddleware, combineReducers, compose, createStore} from 'redux';
@@ -28,8 +28,9 @@ const store = createStore(
 const App = () => {
   return (
     <Provider store={store}>
-      <PruebaFuncion />
-      <PruebaClase />
+      <View>
+        <InputTareas />
+      </View>
     </Provider>
   );
 };

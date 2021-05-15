@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Text, View} from 'react-native';
 import {connect} from 'react-redux';
-import {getPosts, updateName} from '../store/actions/prueba';
+import {getPosts, updateName} from '../../store/actions/prueba';
 
 export class PruebaClases extends Component {
   componentDidMount() {
