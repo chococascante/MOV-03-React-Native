@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {TextInput, View, Button} from 'react-native';
+import {TextInput, View, Button, StyleSheet} from 'react-native';
 import {useDispatch} from 'react-redux';
 import {agregarTarea} from '../../store/actions/tareas';
 
@@ -18,11 +18,12 @@ const InputTareas = () => {
         completado: false,
       }),
     );
+
     setNuevaTarea('');
   };
 
   return (
-    <View>
+    <View style={styles.contenedor}>
       <TextInput
         placeholder="Nueva Tarea"
         value={nuevaTarea}
@@ -33,5 +34,11 @@ const InputTareas = () => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  contenedor: {
+    padding: 24,
+  },
+});
 
 export default InputTareas;

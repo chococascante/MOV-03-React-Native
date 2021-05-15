@@ -9,10 +9,11 @@
  */
 
 import React from 'react';
-import {View} from 'react-native';
+import {SafeAreaView} from 'react-native';
 
 //Componentes
 import InputTareas from './src/components/InputTareas';
+import ListaTareas from './src/components/ListaTareas';
 
 // Redux genérico, de una vez
 import {applyMiddleware, combineReducers, compose, createStore} from 'redux';
@@ -28,9 +29,10 @@ const store = createStore(
 const App = () => {
   return (
     <Provider store={store}>
-      <View>
+      <SafeAreaView>
         <InputTareas />
-      </View>
+        <ListaTareas />
+      </SafeAreaView>
     </Provider>
   );
 };
