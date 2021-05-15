@@ -1,16 +1,11 @@
 import React, {useState} from 'react';
 import {TextInput, View, Button} from 'react-native';
-import {useDispatch, useSelector} from 'react-redux';
-import Tarea from '../../models/Tarea';
-import State from '../../models/State';
+import {useDispatch} from 'react-redux';
 import {agregarTarea} from '../../store/actions/tareas';
 
 const InputTareas = () => {
   const dispatch = useDispatch();
   const [nuevaTarea, setNuevaTarea] = useState<string>('');
-
-  const tareas = useSelector((state: State) => state.tareas.listaTareas);
-  console.log(tareas);
 
   const handleTaskChange = (value: string): void => {
     setNuevaTarea(value);
@@ -23,6 +18,7 @@ const InputTareas = () => {
         completado: false,
       }),
     );
+    setNuevaTarea('');
   };
 
   return (
