@@ -5,6 +5,13 @@ import {
   UPDATE_POSTS,
 } from '../../actions/actionTypes';
 
+export interface ReducerPrueba {
+  nombre: string;
+  apellido: string;
+  edad: number | null;
+  posts: [];
+}
+
 const initialState = {
   nombre: '',
   apellido: '',
