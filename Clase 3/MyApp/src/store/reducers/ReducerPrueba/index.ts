@@ -1,4 +1,8 @@
-import {UPDATE_NAME, UPDATE_LASTNAME, UPDATE_POSTS} from '../../actions';
+import {
+  UPDATE_NAME,
+  UPDATE_LASTNAME,
+  UPDATE_POSTS,
+} from '../../actions/actionTypes';
 
 interface Action {
   type: string;

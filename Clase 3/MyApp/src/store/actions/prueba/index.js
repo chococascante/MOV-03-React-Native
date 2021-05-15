@@ -1,5 +1,4 @@
-import {UPDATE_NAME, UPDATE_POSTS} from '..';
-import axios from 'axios';
+import {UPDATE_NAME, UPDATE_POSTS} from '../actionTypes';
 
 export const updateName = payload => ({
   type: UPDATE_NAME,
@@ -12,9 +11,11 @@ export const updatePosts = payload => ({
 });
 
 export const getPosts = () => async dispatch => {
-  fetch('https://jsonplaceholder.typicode.com/posts').then(response =>
-    console.log(response),
-  );
+  const data = await fetch(
+    'https://jsonplaceholder.typicode.com/posts',
+  ).then(response => console.log(response));
+
+  console.log(data);
 };
 
 class ClaseEjemplo {

@@ -15,13 +15,15 @@ import PruebaFuncion from './src/components/PruebaFuncion';
 import PruebaClase from './src/components/PruebaClases';
 
 // Redux genérico, de una vez
-import {applyMiddleware, compose, createStore} from 'redux';
+import {applyMiddleware, combineReducers, compose, createStore} from 'redux';
 import {Provider} from 'react-redux';
-import reducerPrueba from './src/store/reducers/ReducerPrueba';
+import * as reducers from './src/store/reducers';
 import thunk from 'redux-thunk';
 
-const store = createStore(reducerPrueba, compose(applyMiddleware(thunk)));
-//
+const store = createStore(
+  combineReducers(reducers),
+  compose(applyMiddleware(thunk)),
+);
 
 const App = () => {
   return (

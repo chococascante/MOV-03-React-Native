@@ -8,6 +8,9 @@ const PruebaFuncion = () => {
   const apellido = useSelector(state => state.apellido);
   const dispatch = useDispatch(); // Llamo a cambios del store
 
+  const estado = useSelector(state => state);
+  console.warn(estado);
+
   useEffect(() => {
     dispatch(updateName('Luis'));
     dispatch(getPosts());
