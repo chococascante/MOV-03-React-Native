@@ -3,7 +3,7 @@ import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import Tarea from '../../models/Tarea';
 import Checkbox from '@react-native-community/checkbox';
 import {useDispatch} from 'react-redux';
-import {borrarTarea} from '../../store/actions/tareas';
+import {actualizarTarea, borrarTarea} from '../../store/actions/tareas';
 
 interface ItemListaProps {
   tarea: Tarea;
@@ -14,16 +14,18 @@ const ItemLista: React.FC<ItemListaProps> = ({tarea}) => {
 
   const handleCheckboxPress = (value: boolean) => {
     console.log('Valor boolean', value);
-    dispatch(borrarTarea({...tarea, completado: value}));
+    dispatch(actualizarTarea({...tarea, completado: value}));
   };
 
-  const handleDeletePress = () => {};
+  const handleDeletePress = () => {
+    dispatch(borrarTarea(tarea));
+  };
 
   return (
     <View style={styles.contenedor}>
       <Text>{tarea.nombre}</Text>
       <Checkbox onValueChange={handleCheckboxPress} value={tarea.completado} />
-      <TouchableOpacity style={styles.botonBorrar}>
+      <TouchableOpacity style={styles.botonBorrar} onPress={handleDeletePress}>
         <Text>Borrar</Text>
       </TouchableOpacity>
     </View>

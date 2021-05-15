@@ -10,25 +10,37 @@ export const agregarTarea = (payload: Tarea): Action => ({
   payload,
 });
 
-export function actualizarTarea(payload: Tarea[]): Action {
+export function actualizarListaTareas(payload: Tarea[]): Action {
   return {
     type: ACTUALIZAR_TAREAS,
     payload,
   };
 }
 
+export const actualizarTarea = (payload: Tarea) => (
+  dispatch: ThunkDispatch<State, null, Action>,
+  getState: () => State,
+) => {
+  const listaTareas: Tarea[] = getState().tareas.listaTareas;
+
+  const nuevaLista = listaTareas.map(tarea => {
+    if (tarea.nombre === payload.nombre) {
+      return payload;
+    } else {
+      return tarea;
+    }
+  });
+  dispatch(actualizarListaTareas(nuevaLista));
+};
+
 export const borrarTarea = (payload: Tarea) => (
   dispatch: ThunkDispatch<State, null, Action>,
   getState: () => State,
 ) => {
-  console.log(payload);
   const listaTareas: Tarea[] = getState().tareas.listaTareas;
 
-  const indice = listaTareas.findIndex(
-    tarea => tarea.nombre === payload.nombre,
+  const nuevaLista = listaTareas.filter(
+    tarea => tarea.nombre !== payload.nombre,
   );
-
-  listaTareas[indice] = payload;
-  console.log('Tareas enviadas al reducer', listaTareas);
-  dispatch(actualizarTarea(listaTareas));
+  dispatch(actualizarListaTareas(nuevaLista));
 };
