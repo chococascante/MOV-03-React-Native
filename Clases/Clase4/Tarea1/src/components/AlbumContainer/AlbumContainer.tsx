@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, {ReactNode, useEffect, useState} from 'react';
 import {View, Text, ActivityIndicator} from 'react-native';
 import IAlbum from '../../models/Album';
+import AlbumDetalle from '../AlbumDetalle';
 import ListaAlbum from '../ListaAlbum';
 
 const AlbumContainer = () => {
@@ -63,7 +64,12 @@ const AlbumContainer = () => {
 
   const mostrarListaODetalle = (): ReactNode => {
     if (albumSeleccionado) {
-      return <Text>Album</Text>;
+      return (
+        <AlbumDetalle
+          album={albumSeleccionado}
+          setAlbumSeleccionado={setAlbumSeleccionado}
+        />
+      );
     } else if (albums) {
       return (
         <ListaAlbum
