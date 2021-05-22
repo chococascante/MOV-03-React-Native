@@ -8,6 +8,8 @@ const AlbumContainer = () => {
   const [albums, setAlbums] = useState<IAlbum[] | null>(null);
   const [photos, setPhotos] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [albumSeleccionado, setAlbumSeleccionado] =
+    useState<IAlbum | null>(null);
 
   const cargarAlbums = async () => {
     try {
@@ -61,8 +63,17 @@ const AlbumContainer = () => {
 
   return (
     <View>
-      {/* {albums ? <ListaAlbum albums={albums} /> : <Text>Cargando</Text>} */}
-      {loading ? <ActivityIndicator /> : <Text>Listo</Text>}
+      {loading ? (
+        <ActivityIndicator />
+      ) : (
+        <>
+          {albumSeleccionado ? (
+            <Text>Album</Text>
+          ) : (
+            <>{albums && <ListaAlbum albums={albums} />}</>
+          )}
+        </>
+      )}
     </View>
   );
 };
