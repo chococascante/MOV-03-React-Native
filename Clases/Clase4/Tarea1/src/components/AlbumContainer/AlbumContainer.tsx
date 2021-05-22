@@ -1,9 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import {View, Text} from 'react-native';
+import IAlbum from '../../models/Album';
+import ListaAlbum from '../ListaAlbum';
 
 const AlbumContainer = () => {
-  const [albums, setAlbums] = useState(null);
-  const [cargando, setCargando] = useState(false);
+  const [albums, setAlbums] = useState<IAlbum[] | null>(null);
+  // const [cargando, setCargando] = useState(false);
 
   const cargarAlbums = async () => {
     try {
@@ -26,7 +28,7 @@ const AlbumContainer = () => {
 
   return (
     <View>
-      <Text>Hola</Text>
+      {albums ? <ListaAlbum albums={albums} /> : <Text>Cargando</Text>}
     </View>
   );
 };
