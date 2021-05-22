@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, {useEffect, useState} from 'react';
+import React, {ReactNode, useEffect, useState} from 'react';
 import {View, Text, ActivityIndicator} from 'react-native';
 import IAlbum from '../../models/Album';
 import ListaAlbum from '../ListaAlbum';
@@ -61,19 +61,19 @@ const AlbumContainer = () => {
     llamarCargarAlbums();
   }, []);
 
+  const mostrarListaODetalle = (): ReactNode => {
+    if (albumSeleccionado) {
+      return <Text>Album</Text>;
+    } else if (albums) {
+      return <ListaAlbum albums={albums} />;
+    }
+
+    return null;
+  };
+
   return (
     <View>
-      {loading ? (
-        <ActivityIndicator />
-      ) : (
-        <>
-          {albumSeleccionado ? (
-            <Text>Album</Text>
-          ) : (
-            <>{albums && <ListaAlbum albums={albums} />}</>
-          )}
-        </>
-      )}
+      {loading ? <ActivityIndicator /> : <>{mostrarListaODetalle()}</>}
     </View>
   );
 };
