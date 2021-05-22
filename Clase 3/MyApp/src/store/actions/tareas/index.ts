@@ -1,4 +1,3 @@
-import {Dispatch} from 'redux';
 import {ThunkDispatch} from 'redux-thunk';
 import Action from '../../../models/Action';
 import State from '../../../models/State';
