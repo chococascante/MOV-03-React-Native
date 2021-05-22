@@ -2,12 +2,13 @@ import axios from 'axios';
 import React, {ReactNode, useEffect, useState} from 'react';
 import {View, Text, ActivityIndicator} from 'react-native';
 import IAlbum from '../../models/Album';
+import Photos from '../../models/Photos';
 import AlbumDetalle from '../AlbumDetalle';
 import ListaAlbum from '../ListaAlbum';
 
 const AlbumContainer = () => {
   const [albums, setAlbums] = useState<IAlbum[] | null>(null);
-  const [photos, setPhotos] = useState(null);
+
   const [loading, setLoading] = useState(true);
   const [albumSeleccionado, setAlbumSeleccionado] =
     useState<IAlbum | null>(null);
@@ -17,15 +18,23 @@ const AlbumContainer = () => {
       const dataAlbums = await fetch(
         'https://jsonplaceholder.typicode.com/albums',
       );
-      const dataAlbumsJSON = await dataAlbums.json();
+      const dataAlbumsJSON = (await dataAlbums.json()) as IAlbum[];
 
       const dataPhotos = await fetch(
         'https://jsonplaceholder.typicode.com/photos',
       );
-      const dataPhotosJSON = await dataPhotos.json();
+      const dataPhotosJSON = (await dataPhotos.json()) as Photos[];
 
-      setAlbums(dataAlbumsJSON);
-      setPhotos(dataPhotosJSON);
+      const albumsFormateado = dataAlbumsJSON.map((album: IAlbum) => {
+        return {
+          ...album,
+          photos: dataPhotosJSON.filter((photo: Photos) => {
+            return album.id === photo.albumId;
+          }),
+        };
+      });
+
+      setAlbums(albumsFormateado);
 
       setLoading(false);
     } catch (error) {
