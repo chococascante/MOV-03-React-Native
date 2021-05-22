@@ -65,7 +65,12 @@ const AlbumContainer = () => {
     if (albumSeleccionado) {
       return <Text>Album</Text>;
     } else if (albums) {
-      return <ListaAlbum albums={albums} />;
+      return (
+        <ListaAlbum
+          albums={albums}
+          setAlbumSeleccionado={setAlbumSeleccionado}
+        />
+      );
     }
 
     return null;
