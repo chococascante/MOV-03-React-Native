@@ -1,17 +1,30 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {Text} from 'react-native';
 import ITodo from '../../models/Todo';
+import styled from '@emotion/native';
+import {useDispatch} from 'react-redux';
+import {actualizarTodoSeleccionado} from '../../store/actions/Todos/todos';
 
 interface ItemTodosProps {
   todo: ITodo;
 }
 
 const ItemTodos: React.FC<ItemTodosProps> = ({todo}) => {
+  const dispatch = useDispatch();
+
+  const handlePress = () => {
+    dispatch(actualizarTodoSeleccionado(todo));
+  };
+
   return (
-    <View>
+    <Contenedor onPress={handlePress}>
       <Text>{todo.title}</Text>
-    </View>
+    </Contenedor>
   );
 };
+
+const Contenedor = styled.TouchableOpacity`
+  padding: 12px 10px;
+`;
 
 export default ItemTodos;
