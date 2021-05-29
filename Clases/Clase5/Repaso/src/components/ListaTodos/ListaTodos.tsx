@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {View, Text, FlatList} from 'react-native';
+import {Text, FlatList} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import State from '../../models/State';
 import {fetchTodos} from '../../store/actions/Todos/todos';
