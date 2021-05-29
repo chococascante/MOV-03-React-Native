@@ -10,7 +10,7 @@ export const actualizarTodos = (payload: ITodo[]) => ({
   payload,
 });
 
-export const actualizarTodoSeleccionado = (payload: ITodo) => ({
+export const actualizarTodoSeleccionado = (payload: ITodo | null) => ({
   type: ACTUALIZAR_TODO_SELECCIONADO,
   payload,
 });
