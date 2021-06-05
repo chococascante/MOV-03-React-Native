@@ -17,7 +17,7 @@ const ItemTodos: React.FC<ItemTodosProps> = ({todo}) => {
   };
 
   return (
-    <Contenedor onPress={handlePress}>
+    <Contenedor testID="item-todo-container" onPress={handlePress}>
       <Text>{todo.title}</Text>
     </Contenedor>
   );

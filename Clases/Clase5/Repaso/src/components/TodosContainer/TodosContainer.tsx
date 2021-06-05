@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import {View} from 'react-native';
 import {useSelector} from 'react-redux';
 import {useAuthentication} from '../../context/authentication';
+import {TodosProvider} from '../../context/todos';
 import State from '../../models/State';
 import ListaTodos from '../ListaTodos';
 import TodoDetalle from '../TodoDetalle';
@@ -24,13 +25,17 @@ const TodosContainer = () => {
   }, []);
 
   return (
-    <View>
-      {todoSeleccionado ? (
-        <TodoDetalle todo={todoSeleccionado} />
-      ) : (
-        <ListaTodos />
-      )}
-    </View>
+    <TodosProvider>
+      <View>
+        {todoSeleccionado ? (
+          <TodosProvider>
+            <TodoDetalle todo={todoSeleccionado} />
+          </TodosProvider>
+        ) : (
+          <ListaTodos />
+        )}
+      </View>
+    </TodosProvider>
   );
 };
 

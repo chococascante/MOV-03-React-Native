@@ -27,6 +27,7 @@ export const AuthenticationProvider: React.FC = ({children}) => {
       const usuarios = await axios.get(
         'https://jsonplaceholder.typicode.com/users',
       );
+
       setUsuarios(usuarios.data);
     } catch (error) {
       console.log(error);

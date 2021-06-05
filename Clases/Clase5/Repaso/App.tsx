@@ -7,6 +7,7 @@ import thunk from 'redux-thunk';
 
 import * as reducers from './src/store/reducers';
 import TodosContainer from './src/components/TodosContainer';
+import {AuthenticationProvider} from './src/context/authentication';
 
 const store = createStore(
   combineReducers(reducers),
@@ -17,9 +18,11 @@ const App = () => {
   return (
     // High Order Component o HOC
     <Provider store={store}>
-      <SafeAreaView>
-        <TodosContainer />
-      </SafeAreaView>
+      <AuthenticationProvider>
+        <SafeAreaView>
+          <TodosContainer />
+        </SafeAreaView>
+      </AuthenticationProvider>
     </Provider>
   );
 };
