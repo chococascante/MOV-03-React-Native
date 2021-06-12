@@ -1,16 +1,18 @@
 import React from 'react';
 import {StyleSheet, Button, TouchableOpacity, Text} from 'react-native';
 import styled from '@emotion/native';
+import BrandedButton from '../../atoms/BrandedButton';
+import BlueBackground from '../../atoms/BlueBackground';
 
-const Auth = () => {
+const Auth: React.FC = () => {
   return (
     <Container>
-      <BlueBackground />
+      <BlueBackground height="60%" />
       <ButtonContainer>
-        <BrandedButton onPress={() => {}}>
+        <BrandedButton color="#0055b8" onPress={() => {}}>
           <Text>Crear cuenta</Text>
         </BrandedButton>
-        <BrandedButton onPress={() => {}}>
+        <BrandedButton color="#fff" onPress={() => {}}>
           <Text>Iniciar sesión</Text>
         </BrandedButton>
       </ButtonContainer>
@@ -22,20 +24,6 @@ const Auth = () => {
 const Container = styled.View`
   flex: 1;
   background-color: #fff;
-`;
-
-const BrandedButton = styled.TouchableOpacity`
-  width: 200px;
-  background-color: #0055b8;
-  margin-bottom: 12px;
-  padding: 28px 32px;
-`;
-
-const BlueBackground = styled.View`
-  height: 60%;
-  width: 100%;
-  background-color: #0055b8;
-  border-radius: 0 0 80px 0;
 `;
 
 const ButtonContainer = styled.View`
