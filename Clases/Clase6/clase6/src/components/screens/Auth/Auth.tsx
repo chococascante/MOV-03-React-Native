@@ -3,17 +3,32 @@ import {StyleSheet, Button, TouchableOpacity, Text} from 'react-native';
 import styled from '@emotion/native';
 import BrandedButton from '../../atoms/BrandedButton';
 import BlueBackground from '../../atoms/BlueBackground';
+import {useNavigation} from '@react-navigation/native';
 
 const Auth: React.FC = () => {
+  const navigation = useNavigation();
+
+  const handleLoginButton = () => {
+    navigation.navigate('Login');
+  };
+
+  const handleSigninButton = () => {
+    navigation.navigate('Sigin');
+  };
+
   return (
     <Container>
       <BlueBackground height="60%" />
       <ButtonContainer>
-        <BrandedButton color="primary" text="Crear cuenta" onPress={() => {}} />
+        <BrandedButton
+          color="primary"
+          text="Crear cuenta"
+          onPress={handleLoginButton}
+        />
         <BrandedButton
           color="secondary"
           text="Iniciar sesión"
-          onPress={() => {}}
+          onPress={handleSigninButton}
         />
       </ButtonContainer>
     </Container>
