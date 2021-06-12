@@ -1,6 +1,8 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {Text} from 'react-native';
 import styled from '@emotion/native';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {getButtonColor, getTextColor} from '../../../utils/getColors';
 
 interface BrandedButtonProps {
   color?: string;
@@ -16,21 +18,11 @@ const BrandedButton: React.FC<BrandedButtonProps> = ({
   onPress,
 }) => {
   return (
-    <StyledButton onPress={onPress}>
-      <Text>{text}</Text>
+    <StyledButton color={color} onPress={onPress}>
+      {icon && <Icon name={icon} size={28} />}
+      <StyledText color={color}>{text}</StyledText>
     </StyledButton>
   );
-};
-
-const getButtonColor = (color: string) => {
-  switch (color) {
-    case 'primary':
-      return '#0055b8';
-    case 'secondary':
-      return '#fafafa';
-    default:
-      return '#fff';
-  }
 };
 
 const StyledButton = styled.TouchableOpacity<{color?: string}>`
@@ -41,7 +33,12 @@ const StyledButton = styled.TouchableOpacity<{color?: string}>`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   border-radius: 50px;
+`;
+
+const StyledText = styled.Text<{color?: string}>`
+  color: ${props => props.color && getTextColor(props.color)};
 `;
 
 export default BrandedButton;
