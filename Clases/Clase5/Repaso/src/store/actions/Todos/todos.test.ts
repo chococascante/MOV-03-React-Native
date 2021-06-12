@@ -42,9 +42,7 @@ const mockTodoArray: ITodo[] = [
   },
 ];
 
-jest.mock('axios', () => ({
-  get: () => mockTodoArray,
-}));
+jest.mock('axios');
 
 describe('Todos Actions', () => {
   it('actualizarTodos', () => {
@@ -65,16 +63,18 @@ describe('Todos Actions', () => {
     expect(action).toEqual({type: ACTUALIZAR_TODO_SELECCIONADO, payload: null});
   });
 
-  // it('fetchTodos', () => {
-  //   const store = mockStore({todos: []});
-  //   store.dispatch(fetchTodos());
-  //   const actions = store.getActions();
+  it('fetchTodos', () => {
 
-  //   const state = store.getState();
-  //   expect(state.todos).toEqual(mockTodoArray)
-  //   expect(actions).toContainEqual({
-  //     type: ACTUALIZAR_TODOS,
-  //     payload: mockTodoArray,
-  //   });
-  // });
+    axios.get.mockImplemenetation(() => Promise.resolve(mockTodoArray))
+    const store = mockStore({todos: []});
+    store.dispatch(fetchTodos());
+    const actions = store.getActions();
+
+    const state = store.getState();
+    expect(state.todos).toEqual(mockTodoArray)
+    expect(actions).toContainEqual({
+      type: ACTUALIZAR_TODOS,
+      payload: mockTodoArray,
+    });
+  });
 });
