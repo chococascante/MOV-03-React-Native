@@ -9,10 +9,10 @@ const Auth: React.FC = () => {
     <Container>
       <BlueBackground height="60%" />
       <ButtonContainer>
-        <BrandedButton color="#0055b8" onPress={() => {}}>
+        <BrandedButton color="primary" onPress={() => {}}>
           <Text>Crear cuenta</Text>
         </BrandedButton>
-        <BrandedButton color="#fff" onPress={() => {}}>
+        <BrandedButton color="secondary" onPress={() => {}}>
           <Text>Iniciar sesión</Text>
         </BrandedButton>
       </ButtonContainer>
