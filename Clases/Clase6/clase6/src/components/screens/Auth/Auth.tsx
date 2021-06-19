@@ -1,7 +1,7 @@
 import React from 'react';
-import {StyleSheet, Button, TouchableOpacity, Text} from 'react-native';
+import {StyleSheet} from 'react-native';
 import styled from '@emotion/native';
-import BrandedButton from '../../atoms/BrandedButton';
+import BrandedButton from '../../molecules/BrandedButton';
 import BlueBackground from '../../atoms/BlueBackground';
 import {useNavigation} from '@react-navigation/native';
 
@@ -13,22 +13,22 @@ const Auth: React.FC = () => {
   };
 
   const handleSigninButton = () => {
-    navigation.navigate('Sigin');
+    navigation.navigate('Signin');
   };
 
   return (
     <Container>
-      <BlueBackground height="60%" />
+      <BlueBackground height="60%" round />
       <ButtonContainer>
         <BrandedButton
           color="primary"
           text="Crear cuenta"
-          onPress={handleLoginButton}
+          onPress={handleSigninButton}
         />
         <BrandedButton
           color="secondary"
           text="Iniciar sesión"
-          onPress={handleSigninButton}
+          onPress={handleLoginButton}
         />
       </ButtonContainer>
     </Container>
