@@ -5,9 +5,9 @@ const BottomForm: React.FC = ({children}) => {
   return <WhiteBackground>{children}</WhiteBackground>;
 };
 
-const WhiteBackground = styled.View`
+const WhiteBackground = styled.View<{height?: string}>`
   background-color: #fff;
-  height: 80%;
+  height: ${props => (props.height ? props.height : '80%')};
   width: 90%;
   position: absolute;
   bottom: 0;

@@ -1,26 +1,17 @@
 import React from 'react';
-import {View, Text, Button} from 'react-native';
-
-import {createStackNavigator} from '@react-navigation/stack';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeScreen from '../../components/screens/Home';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Taxi from '../../components/screens/Taxi';
+import Tren from '../../components/screens/Tren';
 
-const {Navigator, Screen} = createStackNavigator();
+const {Navigator, Screen} = createBottomTabNavigator();
 
 const HomeNavigator = () => {
   return (
     <Navigator>
-      <Screen
-        name="Home"
-        component={HomeScreen}
-        options={{
-          headerStyle: {
-            backgroundColor: '#1A66BF',
-          },
-          headerTintColor: '#fff',
-          headerLeft: () => <Icon size={30} color="#fff" name="chevron-left" />,
-        }}
-      />
+      <Screen name="Bici" component={HomeScreen} />
+      <Screen name="Taxi" component={Taxi} />
+      <Screen name="Tren" component={Tren} />
     </Navigator>
   );
 };

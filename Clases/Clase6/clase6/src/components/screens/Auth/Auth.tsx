@@ -51,17 +51,17 @@ const ButtonContainer = styled.View`
 `;
 
 // Estilos con Stylesheet nativo
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-  blueBackground: {
-    height: '60%',
-    width: '100%',
-    backgroundColor: '#0055b8',
-    borderBottomRightRadius: 80,
-  },
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: '#fff',
+//   },
+//   blueBackground: {
+//     height: '60%',
+//     width: '100%',
+//     backgroundColor: '#0055b8',
+//     borderBottomRightRadius: 80,
+//   },
+// });
 
 export default Auth;
