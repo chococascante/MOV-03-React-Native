@@ -3,6 +3,7 @@ import {StyleSheet, View, TouchableOpacity, Text} from 'react-native';
 //import all the components we are going to use.
 import axios from 'axios';
 import React, {useEffect} from 'react';
+// Crear tema selca
 
 const RoutineScreen: React.FC = () => {
   const getDataUsingSimpleGetCall = async () => {
