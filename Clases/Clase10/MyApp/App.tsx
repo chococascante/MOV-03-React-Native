@@ -1,6 +1,6 @@
 import React from 'react';
 import {ApolloClient, InMemoryCache, ApolloProvider, gql} from '@apollo/client';
-import Grahql from './src/components/Graphql/Grahql';
+import GrahqlEjemplo from './src/components/Graphql/Grahql';
 
 // Initialize Apollo Client
 const client = new ApolloClient({
@@ -11,7 +11,7 @@ const client = new ApolloClient({
 const App = () => {
   return (
     <ApolloProvider client={client}>
-      <Grahql />
+      <GrahqlEjemplo />
     </ApolloProvider>
   );
 };
